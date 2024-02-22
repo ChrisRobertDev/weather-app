@@ -1,0 +1,26 @@
+body, html {
+  width: 100%;
+  height: 100%;
+  background-color: #e6f4e6;
+}
+
+h1 {
+  text-align: center;
+}
+.centered-input-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+#inputForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submit {
+  margin: 0.5rem;
+  width: 75%;
+}

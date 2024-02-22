@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}
+Weather Forecast
+{% endblock %} 
+
+{% block content %}
+
+<div class="container">
+  <div class="row justify-content-center mt-5 mb-5">
+    <div class="col-4">
+      <div  class="input-group mb-3">
+        <form id="inputForm" action="/process_form" method="POST">
+        <input type="text" name="city" class="form-control" placeholder="Location...">
+        <input class="submit btn btn-success rounded-pill" type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+  </div>
+  {% if forecasts|length > 0%}
+  <div class="row justify-content-center">
+    <table class="table table-striped table-bordered">
+      
+      <thead class="thead-dark">
+        <tr>
+          <th>Date</th>
+          <th>City</th>
+          <th>Max Temperature</th>
+          <th>Min Temperature</th>
+          <th>Total Precipitation</th>
+          <th>Sunrise Hour</th>
+          <th>Sunset Hour</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        {% for forecast in forecasts %}
+        <tr>
+            <td>{{ forecast.date }}</td>
+            <td>{{ forecast.city }}</td>
+            <td>{{ forecast.max_temperature }}</td>
+            <td>{{ forecast.min_temperature }}</td>
+            <td>{{ forecast.total_precipitation }}</td>
+            <td>{{ forecast.sunrise_hour }}</td>
+            <td>{{ forecast.sunset_hour }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {%endif%}
+</div>
+
+{% endblock %}
